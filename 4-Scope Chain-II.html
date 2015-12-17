@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Scope Chain</title>
+</head>
+<p>
+    <ul>
+        <li>When you have nested functions you can create a scope 'Chain'</li>
+        <li>The browser travels up this chain when looking for a variables value</li>
+    </ul>
+</p>
+
+<body>
+    <script>
+    var myVar = "A global Variable";
+
+    function grandParent() {
+        var myVar = "A Variable local to grandParent()";
+        console.log(myVar);
+
+        function parent() {
+            var myVar = "A Variable local to parent()";
+            console.log(myVar);
+
+            function child() {
+                var myVar = "A Variable local to child()";
+                console.log(myVar);
+            }
+            child();
+            window.child = child;
+        }
+        parent();
+        window.parent = parent;
+    }
+    grandParent();
+    window.grandParent = grandParent;
+    </script>
+</body>
+
+</html>

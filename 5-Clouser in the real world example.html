@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clouser in the real world example</title>
+    <style type="text/css">
+    .track:hover {
+        cursor: pointer;
+        text - decoration: underline;
+    }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li class="track">Track - 1</li>
+        <li class="track">Track - 2</li>
+        <li class="track">Track - 3</li>
+        <li class="track">Track - 4</li>
+        <li class="track">Track - 5</li>
+        <li class="track">Track - 6</li>
+        <li class="track">Track - 7</li>
+        <li class="track">Track - 8</li>
+        <li class="track">Track - 9</li>
+        <li class="track">Track - 10</li>
+        <li class="track">Track - 11</li>
+    </ol>
+    <p>Now playing track number <span id="number"></span></p>
+    <script>
+    var elNumber = document.getElementById("number");
+
+    function setupClickHandlers() {
+        var elTracks = document.getElementsByClassName("track");
+
+        function generateClickHandler(tracknumber) {
+            return function clickHandler() {
+                elNumber.innerHTML = tracknumber;
+            }
+        }
+        for (var i = 0; i < elTracks.length; i++) {
+            elTracks[i].addEventListener("click", generateClickHandler(i + 1));
+        }
+    }
+    setupClickHandlers();
+    </script>
+</body>
+
+</html>

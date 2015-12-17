@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Declaring Variables</title>
+</head>
+
+<body>
+    <script>
+    var myGlobalVariableOne = "My Global Variable One";
+    var myGlobalVariableTwo = "My Global Variable Two";
+    // we can print global variable any where
+    console.log(myGlobalVariableOne);
+
+    function printing() {
+        var myLocalVariableOne = "My Local Variable One";
+        var myLocalVariableTwo = "My Local Variable Two";
+        // Without var keyword that variable considered as global variable we can use out of the function.
+        myLocalVariableThree = "My Local Variable Three (Without VAR KEYWORD this one considered as window object)";
+        window.myGlobalVariableThree = "My Global variable three with [WINDOW OBJECT]"
+        console.log(myGlobalVariableOne);
+        console.log(myGlobalVariableTwo);
+        console.log(myLocalVariableOne);
+        console.log(myLocalVariableTwo);
+        console.log(myLocalVariableThree);
+    }
+
+    printing();
+    // We can call global variable outside the function entire window.
+    console.log(myGlobalVariableTwo);
+    // We can call local variable outside the function this variable work because of without VAR keyword
+    console.log(myLocalVariableThree);
+    // We can call window object variable outside the function.
+    console.log(myGlobalVariableThree);
+    // We cant call local variable outside the function.
+    /*console.log(myLocalVariableOne);
+    console.log(myLocalVariableTwo);*/
+    </script>
+</body>
+
+</html>

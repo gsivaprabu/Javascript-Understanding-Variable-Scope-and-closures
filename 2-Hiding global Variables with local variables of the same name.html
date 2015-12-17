@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hiding global Variables with local variables of the same name</title>
+</head>
+
+<body>
+    <script>
+    var myVar = "Global Variable";
+
+    function printing() {
+        var myVar;
+        console.log(myVar);
+        var myVar = "Local variable inside the function"
+        console.log(myVar);
+        // Window object means we can access the global variable inside the function
+        console.log(window.myVar);
+    }
+    printing();
+    console.log(myVar);
+    </script>
+</body>
+</html>
